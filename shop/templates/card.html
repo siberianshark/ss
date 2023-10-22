@@ -1,0 +1,43 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+	{% include 'header.html' %}
+	<section id="card">
+		<div class="container">
+			<div class="card ficb">
+				<div class="card__block card__block_first">
+					<img src="{{ card.image.url }}" alt="img" class="card__img">
+				</div>
+				<div class="card__block card__block_sec">
+					<div class="title">{{ card.name }}</div>
+					<div class="card__block_price">{{ card.price }} ₽</div>
+					<div class="card__elems ">
+						<span class="card__elems_intro">Состав</span>
+						<div class="card__items">
+							<span class="card_items_intro">
+                                {{ card.structure }}
+							</span>
+						</div>
+					</div>
+					<div class="card__elems ">
+						<span class="card__elems_intro">Размер</span>
+						<div class="card__items">
+							<span class="card_items_intro">
+								{{ card.height }}
+							</span>
+							<span class="card_items_intro">
+								{{ card.width }}
+							</span>
+						</div>
+					</div>
+                    <a href="{% url 'order' %}?bouquet={{ card.id }}">
+                        <button class="btn largeBtn card__btn">Заказать букет</button>
+                    </a>
+				</div>
+			</div>
+		</div>
+	</section>
+    {% include 'consultation_block.html' %}
+    {% include 'footer.html' %}
+	<footer id="footer">
+{% endblock content %}

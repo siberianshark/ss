@@ -1,0 +1,48 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+	<div class="mainBg">
+        {% include 'header.html' %}
+		<section id="banner">
+			<div class="container">
+				<div class="banner">
+					<div class="banner__block">
+						<h1 class="banner__title">Plants for soul</h1>
+						<p class="banner__text">best choice to get a plant, easy to make great day</p>
+						<a href="{% url 'quiz' %}">
+                            <button class="btn banner__btn">Choose</button>
+                        </a>
+					</div>
+					<div class="item">
+					<img src="{% static '/img/banner.png' %}" alt="banner Img" class="banner__img">
+				</div>
+			</div>
+		</section>
+	</div>
+	<section id="recommended">
+		<div class="container">
+			<div class="recommended p100">
+				<div class="title">We recomendate</div>
+				<div class="recommended__elems ficb">
+					{% for card in home %}
+                        <a style="font-style: normal; text-decoration: none; color: black" href="{% url 'card' card.pk %}">
+                            <div class="recommended__block" style="background: url('{{ card.image.url }}') no-repeat center bottom / cover;">
+                                <div class="recommended__block_elems ficb">
+                                    <span class="recommended__block_intro">{{ card.name }}</span>
+                                    <span class="recommended__block_price">{{ card.price }} ₽</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+				</div>
+                <a href="{% url 'catalog' %}">
+                    <button class="btn recommended__btn">Показать всю коллекцию</button>
+                </a>
+			</div>
+		</div>
+	</section>
+    {% include 'contacts.html' %}
+	{% include 'consultation_block.html' %}
+    {% include 'footer.html' %}
+	
+{% endblock content %}

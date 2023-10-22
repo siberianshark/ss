@@ -1,0 +1,20 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+	{% include 'header.html' %}
+	<section id="orderStep">
+		<div class="container">
+			<div class="order orderStep">
+				<div class="order__block">
+					<div class="order_items">
+						<div class="title">Оплата</div>
+						<iframe src="https://yoomoney.ru/quickpay/fundraise/button?billNumber=Oa0dJwPewp0.230205&" width="330" height="50" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+					</div>
+					<!-- <div class="blockImgHiden"></div> -->
+				</div>
+			</div>
+		</div>
+		<img src="{% static 'img/orderImg.jpg' %}" alt="orderImg" class="order__img">
+	</section>
+    {% include 'footer.html' %}
+{% endblock content %}

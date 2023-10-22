@@ -1,0 +1,15 @@
+{% load static %}
+<header id="header">
+    <div class="container">
+        <div class="header ficb">
+            <a href="{% url 'home' %}"><img src="{% static 'static/img/logo.svg' %}" alt="logo" class="logo"></a>
+            <nav>
+                <ul class="menu ficc">
+                    <li class="menu__item"><a href="{% url 'catalog' %}" class="menu__item_link">Catalog</a></li>
+                    <li class="menu__item"><a href="{% url 'home' %}#recommended" class="menu__item_link">Recomendations</a></li>
+                    <li class="menu__item"><a href="{% url 'home' %}#contacts" class="menu__item_link">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
